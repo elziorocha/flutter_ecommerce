@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final/telas/Home/Widget/barra_pesquisa.dart';
+import 'package:flutter_final/telas/Home/Widget/categorias.dart';
 import 'package:flutter_final/telas/Home/Widget/home_appbar.dart';
+import 'package:flutter_final/telas/Home/Widget/slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,20 +12,64 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentSlider = 0;
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
-              CustomAppBar()
+              const CustomAppBar(),
+              const SizedBox(
+                height: 20,
+              ),
+              const BarraPesquisa(),
+              const SizedBox(
+                height: 20,
+              ),
+              SliderHome(
+                currentSlide: currentSlider,
+                onChange: (value) {
+                  setState(
+                    () {
+                      currentSlider = value;
+                    },
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Categorias(),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Apenas para você",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  Text(
+                    "Ver Tudo",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
