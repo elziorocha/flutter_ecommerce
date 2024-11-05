@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final/Models/produtos_modelo.dart';
 import 'package:flutter_final/telas/Home/Widget/barra_pesquisa.dart';
+import 'package:flutter_final/telas/Home/Widget/card_produtos.dart';
 import 'package:flutter_final/telas/Home/Widget/categorias.dart';
 import 'package:flutter_final/telas/Home/Widget/home_appbar.dart';
 import 'package:flutter_final/telas/Home/Widget/slider.dart';
@@ -70,6 +72,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+              GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.78,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                ),
+                itemCount: produtoModelos.length,
+                itemBuilder: (context, index) {
+                  return CardProdutos(
+                    produto: produtoModelos[index],
+                  );
+                },
+              )
             ],
           ),
         ),
