@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_final/constants.dart';
 
 class AppbarDetalhes extends StatelessWidget {
   const AppbarDetalhes({super.key});
@@ -13,16 +12,18 @@ class AppbarDetalhes extends StatelessWidget {
         children: [
           IconButton(
             style: IconButton.styleFrom(
-              backgroundColor: appsecondaryColor,
+              backgroundColor: Colors.white,
               padding: const EdgeInsets.all(15),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: const Icon(Icons.arrow_back_ios),
           ),
           const Spacer(),
           IconButton(
             style: IconButton.styleFrom(
-              backgroundColor: appsecondaryColor,
+              backgroundColor: Colors.white,
               padding: const EdgeInsets.all(15),
             ),
             onPressed: () {},
@@ -33,7 +34,7 @@ class AppbarDetalhes extends StatelessWidget {
           ),
           IconButton(
             style: IconButton.styleFrom(
-              backgroundColor: appsecondaryColor,
+              backgroundColor: Colors.white,
               padding: const EdgeInsets.all(15),
             ),
             onPressed: () {},
